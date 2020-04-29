@@ -1,0 +1,160 @@
+<app-pnav  passid={{my_id}}></app-pnav>
+<div class="wrapper">
+    <div >
+        <div class="page-header-image rellax-header " data-rellax-speed="-8" style="background-image: url('assets/img/a2.jpg'); height: 100px;" >
+      <!-- <img src="assets/img/newlogo.png" height="100px" width="100px" > -->
+        </div>
+        
+        
+        <div class="txt"><h4>Advanced Doctor Search </h4></div>
+        <hr>
+        <div class="txt">Find Doctors With...</div>
+      
+      
+    </div>
+
+    
+<div class="row">
+<form #searchform=ngForm >
+  <div class="col1">
+<div class="form-group">
+    <input ngModel #spec="ngModel" name="spec1" type="text" class="form-control" placeholder="Specialist" (keyup)="specFilter(spec.value)" list="suggestions">
+<datalist id="suggestions">
+        <option *ngFor ="let spec of Specialist" [ngValue]="specialist">{{spec}} </option>
+</datalist>
+</div>
+</div>
+
+
+<div class="col1">
+<div class="form-group">
+    <input ngModel #position name="position" type="text" class="form-control" placeholder="Position" (keyup)="posFilter(position.value)" list="pos-list" >
+    <datalist id="pos-list">
+            <option>Generation</option>
+            <option>Qualified</option>
+            <option>Both</option>
+        </datalist>
+</div>
+</div>
+<div class="col1">
+<div class="form-group">
+        <input ngModel #gender name="gender2" type="text" class="form-control" placeholder="Gender" (keyup)="genderFilter(gender.value)" list="gender-list" >
+        <datalist id="gender-list">
+                <option>Male</option>
+                <option>Female</option>
+                
+            </datalist>
+    </div>
+</div>
+<!-- <div class="form-group">
+    <input ngModel #position name="position" type="text" class="form-control" placeholder="Position" (keyup)="posFilter(position.value)" list="pos-list" >
+    <datalist id="pos-list">
+            <option>Generation</option>
+            <option>Qualified</option>
+            <option>Both</option>
+        </datalist>
+</div> -->
+
+<!-- 
+<div class="form-group">
+    <input ngModel #position name="position" type="radio" class="form-control"  >
+     <input ngModel #position name="position" type="radio" class="form-control"  >
+      <input ngModel #position name="position" type="radio" class="form-control"  >
+    
+</div> -->
+
+
+
+
+<!-- <div class="form-group">
+    Male    <input ngModel #gender type="radio" class="form-control" name="gender" value="male"  (onClick)="checkGender(gender.value)">
+    Female    <input ngModel #gender type="radio" class="form-control" name="gender" value="female" (onClick)="checkGender(gender.value)" >
+        
+    </div> -->
+
+
+
+
+
+</form>
+
+</div>
+<br>
+<br>
+<div *ngFor="let item of Query | async">
+        <div class="card">
+            <div class="row">
+                <div class="img">
+                <img src="https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg" alt="Avatar"  class="avatar">
+                </div>
+                <div class="column">
+                <div class="container">
+                  <h4><b>{{item.Firstname}} {{item.Lastname}}</b></h4> 
+                  <p>{{item.Email}}</p> 
+                  <p>Experienced Years: {{item.expyear}}</p> 
+                 
+                </div>
+                <button [routerLink]="['/doctorview',item.Userid]" class="btn btn-primary btn-round ico"><i class="now-ui-icons users_single-02"></i>View Profile</button>
+                <button  routerLink="/appstep2" class="btn btn-primary btn-round ico" type="button"><i class="now-ui-icons ui-1_calendar-60"></i> Book Appointment</button>
+                <!-- <button [routerLink]="['/doctorview',results.NIC]" class="btn btn-primary btn-round ico" type="button"><i class="now-ui-icons users_single-02"></i> View Profile</button>
+                <button  routerLink="/appstep2" class="btn btn-primary btn-round ico" type="button"><i class="now-ui-icons ui-1_calendar-60"></i> Book Appointment</button>
+                 -->
+              </div>
+              
+              </div>
+            </div>
+   
+</div>
+<div>
+    <app-pfooter></app-pfooter>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- <footer class="footer footer-default">
+      <div class="container">
+          <nav>
+              <ul>
+                  <li>
+                      <a href="https://www.creative-tim.com">
+                          Creative Tim
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://www.creative-tim.com/about-us">
+                          About Us
+                      </a>
+                  </li>
+                  <li>
+                      <a href="http://blog.creative-tim.com">
+                          Blog
+                      </a>
+                  </li>
+                  <li>
+                      <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                          MIT License
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+          <div class="copyright">
+              &copy;
+              {{data | date: 'yyyy'}}, Designed by
+              <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+          </div>
+      </div>
+  </footer> -->

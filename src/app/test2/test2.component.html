@@ -1,0 +1,16 @@
+
+<!-- <button (click)=test()>click here</button>
+
+
+<div>
+    <p>Today is {{today | date}}</p>
+    <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+    <p>The time is {{today | date:'h:mm a z'}}</p>
+  </div>
+ 
+<app-aptable></app-aptable> -->
+<ul>
+  <div *ngFor="let time of times | async">
+{{time.from.hour}}
+  </div>
+</ul>

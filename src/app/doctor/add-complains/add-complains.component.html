@@ -1,0 +1,203 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-color "color-on-scroll="500">
+  <div class="container">
+    <!-- <img src="assets/img/herbalicon.png" height="30px" width="30px"  /> -->
+      <div class="navbar-translate">
+          <a class="navbar-brand" [routerLink]="['/home']" placement="bottom" >
+             
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link"   routerLink="/index" >
+                  <i class="now-ui-icons business_bank"></i>
+                  <p>Home</p>
+              </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/viewappoinment',my_id]">
+                <i class="now-ui-icons ui-1_calendar-60"></i>
+                <p>Appoinments</p>
+            </a>
+        </li>
+                       
+        <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/complain',my_id]">
+                <i class="now-ui-icons text_align-center"></i>
+                <p>Complains</p>
+            </a>
+        </li>
+       
+
+        <li class="nav-item dropdown">
+          <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="now-ui-icons users_single-02
+
+              "></i>
+            <p>Profile</p>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item " [routerLink]="['/spage',my_id]" > View Profile </a>
+            <a class="dropdown-item " [routerLink]="['/doctoradmin',my_id]"> Edit Profile</a>
+            <a class="dropdown-item " [routerLink]="['/report',my_id]" > View Report </a>
+           
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index" >
+              <i class="now-ui-icons media-1_button-power"></i>
+              <p>Log Out</p>
+          </a>
+      </li>
+           
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+
+<div class="container">
+
+  <div class="content-center brand">
+    <img class="logo" src="assets/img/new3logo.png" alt="logo" height=22% width=22% style="margin-left:27rem;margin-top:5rem;">
+    
+</div>
+</div> 
+
+
+
+<div>
+
+  <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out">
+  <span style="font-size: 2rem;font-weight: bold;margin-left:20rem;font-family: 'Times New Roman', Times, serif;"> Our team is happy to help your questions</span>
+
+</div>
+
+<div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out">
+
+  <br><br> <span style="font-size: 2rem;font-weight: bold;margin-left:15rem;font-family: 'Times New Roman', Times, serif;">Fill out the form and we'll be in touch as soon as possible</span>
+</div>
+
+</div>
+<div class="section section-tabs" style="background-color: white;">
+    <div class="container col-lg-12">
+      <div class="row">
+        <div class="col-md-20 col-xl-10">
+        
+                                    <span style="font-weight: bold;margin-left:32rem;font-size:2rem;">- Contact Us -</span>
+                                    <br><br><br><br>
+                                    <div class="row" >
+                                      <!-- reactive form -->
+                                        <form [formGroup]="userForm"  (ngSubmit)="addIssue(userForm.value)" >
+
+                                            <div class="form-group">
+
+                                              <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out" >
+                                         
+                                              
+
+                                              
+                                              <label style="margin-left:37rem;font-weight: bold;font-size: 1rem;">First Name</label>
+                                              <br> <br>
+                                              <input style="margin-left: 28rem;width:27rem;" type="text"   formControlName="Firstname"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.Firstname.errors }"/>
+                                               <!--  -->
+                                               <div *ngIf="submitted && f.Firstname.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Firstname.errors.required"> First Name is required</div>
+                                            </div>
+                                              <!--  -->
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+
+                                              <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out"
+                                              >
+                                              <label style="margin-left: 37rem;font-weight: bold;font-size: 1rem;">Last Name</label>
+                                                
+                                              <br> <br>
+                                              <input style="margin-left: 28rem;width:27rem;" type="text"   formControlName="Lastname"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Lastname.errors }"/>
+                                              <div *ngIf="submitted && f.Lastname.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Lastname.errors.required"> Last Name is required</div>
+                                            </div>
+                                            
+                                            </div> 
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+
+                                              <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out"
+                                              >
+                                              <label style="margin-left:  37rem;font-weight: bold;font-size: 1rem;" >Your Email</label>
+                                              <br> <br>  
+                                              <input style="margin-left:28rem;width:27rem;"  type="text"   formControlName="Email"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                                              <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                                <div *ngIf="f.Email.errors.required">Email is required</div>
+                                            </div>    
+                                            
+                                            </div> 
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+
+
+                                              <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out"
+                                              >
+                                              <label style="margin-left:  37rem;font-weight: bold;font-size: 1rem;" >Your Message</label>
+                                              <br> <br> 
+                                              <textarea style="margin-left: 28rem;width:27rem;"  type="text" formControlName="msg"  class="form-control" rows="4" cols="80" [ngClass]="{ 'is-invalid': submitted && f.msg.errors }"></textarea>
+                                                
+                                              <div *ngIf="submitted && f.msg.errors" class="invalid-feedback">
+                                                <div *ngIf="f.msg.errors.required">Message is required</div>
+                                            </div>
+                                            </div> 
+                                            </div>
+                                                   <br><br>
+                                            <div class="form-group">
+                                              <div data-aos="fade-up" data-aos-delay="54" data-aos-duration="1000" data-aos-easing="ease-in-out"
+                                              >
+                                                <input style="margin-left: 34rem; " type="submit"  class="btnRegister" value="Submit" >
+                                            </div>
+                                          </div>
+                                          </form>
+
+
+
+                                    </div>
+                                    <br>
+                                   
+                                    <br><br><br><br><br>
+                               
+                  
+
+         
+
+
+
+
+
+
+              
+
+
+
+
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+ 
+<app-dfooter></app-dfooter>

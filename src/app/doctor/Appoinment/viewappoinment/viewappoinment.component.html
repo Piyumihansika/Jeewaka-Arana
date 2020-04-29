@@ -1,0 +1,137 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-color "color-on-scroll="500">
+  <div class="container">
+    <!-- <img src="assets/img/herbalicon.png" height="30px" width="30px"  /> -->
+      <div class="navbar-translate">
+          <a class="navbar-brand" [routerLink]="['/home']" placement="bottom" >
+             
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link"   routerLink="/index" >
+                  <i class="now-ui-icons business_bank"></i>
+                  <p>Home</p>
+              </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/viewappoinment',my_id]">
+                <i class="now-ui-icons ui-1_calendar-60"></i>
+                <p>Appoinments</p>
+            </a>
+        </li>
+                       
+        <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/complain',my_id]">
+                <i class="now-ui-icons text_align-center"></i>
+                <p>Complains</p>
+            </a>
+        </li>
+       
+
+        <li class="nav-item dropdown">
+          <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="now-ui-icons users_single-02
+
+              "></i>
+            <p>Profile</p>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item " [routerLink]="['/spage',my_id]" > View Profile </a>
+            <a class="dropdown-item " [routerLink]="['/doctoradmin',my_id]"> Edit Profile</a>
+            <a class="dropdown-item " [routerLink]="['/report',my_id]" > View Report </a>
+           
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/index" >
+              <i class="now-ui-icons media-1_button-power"></i>
+              <p>Log Out</p>
+          </a>
+      </li>
+           
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+
+<div class="head">
+  <h1 class="title">Your Appointment List</h1>
+</div>
+
+
+
+
+<!-- notification toast -->
+<ngb-toast *ngIf="show" header="Done!" [autohide]="false" (hide)="close()">
+  Cancelled Appointment
+</ngb-toast>
+
+<br><br><br>
+<div class="mytab">
+<ngb-tabset [destroyOnHide]="false" >
+  <ngb-tab title="Appointments">
+    
+    <ng-template ngbTabContent>
+      <div class="tabcontainer">
+      <br><br>
+      <ul *ngFor="let p of pat_verify | async"> 
+        <div class="card" style="width: 50rem;margin-left: 25px;" >
+        <div class="card-body">
+          
+           
+          <div class="row">
+          
+             
+                <div class="col col-md-13"> 
+                  <h5>Date - {{p.Day}}/{{p.Month}}/{{p.Year}}</h5>
+                  <h5>Time - {{p.Time}}</h5>
+                  <h5>Patient Name :{{p.PatientName}}</h5> 
+                  <h5>Telephone Number -{{p.PhoneNumber}} </h5> 
+                  
+                    
+                    
+                    <button   class="btn btn-primary btn-round ico" type="button" (click)="cancel(p.id)"><i class="now-ui-icons shopping_basket" ></i> Cancel Appointment</button>
+                    </div>
+          </div>
+        
+            
+        
+        
+        </div>
+        
+        </div>
+        
+        </ul>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Add Timeslots">
+    
+    <ng-template ngbTabContent>
+      <div class="tabcontainer">
+       
+       <app-timepicker></app-timepicker>
+      </div>
+
+     
+    </ng-template>
+  </ngb-tab>
+  
+</ngb-tabset>
+</div>
+
+
+
+<app-dfooter></app-dfooter>

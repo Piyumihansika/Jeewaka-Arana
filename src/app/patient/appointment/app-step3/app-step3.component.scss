@@ -1,0 +1,258 @@
+// steps
+$progress-color: #E5E5E5;
+$progress-text-color: #999;
+$progress-border-color: #D4D4D1;
+$progress-border-style: dashed;
+$progress-border-width: 1px;
+$progress-number-padding: 4px 0 0 2px;
+
+$progress-active: #16C4C7;
+$progress-text-active: #222;
+$progress-number-active: #FFF;
+
+$progress-complete: #79BD9A;
+$progress-text-complete: #79BD9A;
+$progress-number-complete: #FFF;
+
+$progress-number-width: 33px;
+$progress-number-space: 6px;
+
+@mixin progress-alt-style($text, $weight, $color, $number) {
+  color: $text;
+  font-weight: $weight;
+      
+  > .number {
+    background: $color;
+    color: $number;
+  }
+      
+  &::before {
+    border-color: $color;
+  }
+}
+
+.progress-steps {
+  display: table;
+  table-layout: fixed;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  height: calc(#{$progress-number-width} + 1em);
+  margin-bottom: 16px;
+  margin-top: 40px;
+  
+  > li {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+    top: 40px;
+    color: $progress-text-color;
+    
+    &.active {
+      @include progress-alt-style($progress-text-active, 600, $progress-active, $progress-number-active);
+    }
+    
+    &.complete {
+      @include progress-alt-style($progress-text-complete, 600, $progress-complete, $progress-number-complete);
+    }
+    
+    > .number {
+      box-sizing: border-box;
+      display: block;
+      font-size: 1.2em;
+      font-weight: 300;
+      border-radius: 50%;
+      background: $progress-color;
+      width: $progress-number-width;
+      height: $progress-number-width;
+      padding: $progress-number-padding;
+      text-align: center;
+      left: calc(50% - #{$progress-number-width / 2});
+      top: #{-$progress-number-width - 1px};
+      position: absolute;
+    }
+    
+    &::before {
+      position: absolute;
+      width: calc(100% - #{$progress-number-width + ($progress-number-space * 2)});
+      content: '';
+      border-bottom: $progress-border-style $progress-border-width $progress-border-color;
+      left: calc(-50% + #{($progress-number-width / 2) + $progress-number-space});
+      top: -#{($progress-number-width / 2) + 2px};
+    }
+    
+    &:first-child::before {
+      border: none;
+    }
+  }
+}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // background-color: #E8E8E8;
+  display: flex;
+  justify-content:20%;
+  align-items: center;
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #696969;
+}
+
+.reservation {
+  margin-right: 70px;
+  margin-left: 70px;
+  padding: 20px 40px;
+  height: 95%;
+  align-self: center;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2)
+}
+
+header {
+  // display: flex;
+  // justify-content: space-between; 
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+header picture {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 80px 20px 20px;
+  
+}
+
+picture .title {
+  text-transform: none;
+  font-weight: bold;
+  // align-items: center;
+}
+picture .info {
+  font-weight: bold;
+  align-items: center;
+}
+
+.reservation {
+  width: 406px;
+  background-color: #fff;
+}
+
+header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid #696969;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+header a,
+.table_number a {
+  // color: #696969;
+  font-size: 8px;
+  text-decoration: none;
+}
+
+.table_number {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+
+.table_number .count {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.table_number .number {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.date_time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+.header-user-detail, .header-card-detail {
+  text-align: center;
+  padding-top: 20px;
+  text-transform: capitalize;
+}
+
+input {
+  width: 90%;
+  background-color: #fff;
+  padding: 15px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin: 0 0 3% 3%;
+  border: 0;
+}
+
+input[type="text"] {
+  text-transform: capitalize;
+}
+
+input:focus {
+  outline: none;
+}
+
+.profile-details {
+  background-color: #fff;
+}
+
+.remove-card-details li {
+  padding: 5px;
+  font-size: 1em;
+}
+
+.user-form {
+  padding: 30px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative; 
+}
+
+.user-form, .remove-card-details {
+  background-color: #D8D8D8;
+  width: 100%;
+  margin: auto;
+}
+
+.ico {
+  margin: 30px 30px; 
+}
+
+
+
+.container{
+  margin-top:150px;
+}

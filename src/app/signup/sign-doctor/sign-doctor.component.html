@@ -1,0 +1,243 @@
+ <div class="section section-signup" style="background-image: url('assets/img/signup_background.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+    <div class="container register" >
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="https://www.ummc.edu.my/images/ico/doctor-icon.png" alt=""/>
+                <h3>Welcome</h3>
+                <p>"People will trust you, confide in you, and appreciate your efforts.  You can do amazing things for people if you don’t let the system get you down."</p>
+                <button class="btnLogin"  routerLink="/dlogin">login</button>
+            </div>
+            
+            <div class="col-md-9 register-right">
+                
+                        <h3 class="register-heading">Register as a Doctor</h3>
+                        <div *ngIf="!checkpassword(password.value,confpassword.value)">
+                        <ngb-alert type="custom" [dismissible]="false">
+                                <strong>Warning!</strong>Password Mismatches.
+                              </ngb-alert>
+                            </div>
+                        <div class="row" *ngIf="authError">
+                                <div class="col-9 alert alert-danger">
+                                  {{ authError?.message }}
+                                </div>
+                              </div>
+                             
+                        <form #f="ngForm" (ngSubmit)="f.valid && checkpassword(password.value,confpassword.value) && createUser(f)">
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input ngModel #firstName="ngModel" name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name..." [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required>
+                                    <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                                        <div *ngIf="firstName.errors.required">First Name is required</div>
+                                    </div>
+                                </div>
+                               
+                               
+                                <div class="form-group">
+                                    <input ngModel #email="ngModel" name="email" type="email" class="form-control" placeholder="Your Email..." [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required> 
+                                    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                                        <div *ngIf="email.errors.required">Email is required</div>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <input ngModel #nic="ngModel" name="nic" type="text" class="form-control" id="nic" value="" placeholder="Your NIC..." [ngClass]="{ 'is-invalid': f.submitted && nic.invalid }" required>
+                                    <div *ngIf="f.submitted && nic.invalid" class="invalid-feedback">
+                                        <div *ngIf="nic.errors.required">NIC Number is required</div>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group" title="Choose your qualification">
+                                        <div *ngIf="f.submitted && position.invalid" class="invalid-feedback">
+                                                <div *ngIf="position.errors.required">Position is required</div>
+                                                </div>
+                                    <div class="wrapout">
+                                        Choose your Qualification :
+                                        
+                                    <div class="wrap">
+                                        
+                                        <label class="container">
+                                                <input ngModel #position="ngModel" name="position" type="radio" class="form-control-radio" value="Qualified" id="position1" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }" required>
+                                                Qualified only
+                                            </label>
+                                            <label class="container">
+                                                <input ngModel #position="ngModel" name="position" type="radio" class="form-control-radio" value="Generation" id="position2" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }" required>
+                                                Generation only
+                                            </label>
+                                            <label class="container">
+                                                <input ngModel #position="ngModel" name="position" type="radio" class="form-control-radio" value="Generation and Qualified" id="position3" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }" required>
+                                                Both
+                                                   
+                                            </label>
+                                        </div>  
+                                        
+                                    </div>  
+
+                                        </div>
+                               
+                                        <!-- <div class="form-group">
+                                                <div class="slidecontainer">
+                                                        <label>Experienced Years</label>
+                                                        <input ngModel #expyears type="range" min="1" max="100" value="" class="slider" ondragover="slider(expyears.value)" id="myRange">
+                                                        
+                                                      </div>
+                                            </div> -->
+                                            <div class="form-group">
+                                               
+                                                <input ngModel #years="ngModel" type="number" name="years"  class="form-control" placeholder="Experienced Years.." [ngClass]="{ 'is-invalid': f.submitted && years.invalid }" required >
+                                                <div *ngIf="f.submitted && years.invalid" class="invalid-feedback">
+                                                        <div *ngIf="years.errors.required">Years of Experience is required</div>
+                                                    </div>
+                                            </div>
+                                            
+                                            
+
+                                            <div class="form-group">
+                                                    <input ngModel #password="ngModel" name="password" type="password" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required appShowpassword>
+                                                    <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                                                        <div *ngIf="password.errors.required">Password is required</div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                            <input ngModel #lastName="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="" placeholder="Last Name..." [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required>
+                                            <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                                                <div *ngIf="lastName.errors.required">Last Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <input ngModel #phone="ngModel" name="phone" type="number" minlength="10" maxlength="10" id="phone" class="form-control" placeholder="Your Phone Number..." [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" required> 
+                                                <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+                                                    <div *ngIf="phone.errors.required">Phone Number is required</div>
+                                                </div>
+                                            </div>
+                                           
+
+                                            <!-- <div class="form-group">
+                                                    <input ngModel #city2="ngModel" name="city2" type="text" class="browser-default custom-select" placeholder="Select Your City..." list="cities"  >
+                                                       <datalist id="cities">
+                                                           <option>1</option>
+                                                           <option>2</option>
+                                                           <option>3</option>
+                                                       </datalist>
+                                                    
+                                                </div> -->
+
+                                                <input ngModel #city="ngModel" class="form-control"  name="city"  list="citylist" [ngClass]="{ 'is-invalid': f.submitted && city.invalid }" placeholder="Choose your city..." required>
+                                                <div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+                                                        <div *ngIf="city.errors.required">City is required</div>
+                                                    </div>
+                                                <datalist id="citylist" >
+
+                                                        <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+
+                                                </datalist>
+                                                <!-- <select ngModel #city="ngModel" class="custom-select" (change)="changeCity($event)" name="city">
+                                                    <option value="" disabled  >Choose your city</option>
+                                                    <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+                                                 </select> -->
+                                
+                                <div *ngIf="position.value=='Generation'" class="form-group" >
+                                    <input ngModel #regnumber="ngModel" name="regnumber" type="text" class="form-control" id="regnumber"  placeholder="Your Registration Number..."  disabled   >
+                                    
+                                </div>
+                                    
+                                          
+
+                                        <div *ngIf="position.value !='Generation'" class="form-group" >
+                                            <input ngModel #regnumber="ngModel" name="regnumber" type="text" class="form-control" id="regnumber" [ngClass]="{ 'is-invalid': f.submitted && regnumber.invalid }"  placeholder="Your Registration Number..." required >
+                                            <div *ngIf="f.submitted && regnumber.invalid" class="invalid-feedback">
+                                                    <div *ngIf="regnumber.errors.required">Registration Number</div>
+                                                </div>   
+                                        
+                                        </div>
+
+                                          
+                                   
+
+     <div *ngIf="position.value=='Generation'"  class="file">
+        <label class="file-label" disabled>
+
+
+        <input class="file-input" type="file" (change)="startUpload($event.target.files)" disabled>
+
+
+         
+        </label>
+      </div>
+      <div *ngIf="position.value !='Generation'" class="file">
+            <label class="file-label">
+    
+    
+            <input #file class="file-input" type="file" [ngClass]="{ 'is-invalid': f.submitted && file.invalid }" (change)="startUpload($event.target.files)" required>
+    
+            <div *ngIf="f.submitted && file.invalid" class="invalid-feedback">
+                    <div *ngIf="file.errors.required">Certificate is required</div>
+                </div>
+             
+            </label>
+          </div>
+<!-- 
+<div *ngIf="percentage | async as pct">
+
+        <progress class="progress is-info" 
+                  [value]="pct" 
+                  max="100">        
+        </progress>
+      
+        {{ pct | number }}%
+      
+      </div> -->
+      
+      
+      <!-- <div *ngIf="snapshot | async as snap">
+        {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }} 
+      
+        <div *ngIf="downloadURL | async as url">
+          <h3>Results!</h3>
+          <img [src]="url"><br>
+          <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+        </div> 
+      
+        <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pause</button>
+        <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancel</button>
+        <button (click)="task.resume()" class="button is-info"   [disabled]="!(snap?.state === 'paused')">Resume</button>
+      
+      </div> -->
+      <div class="form-group">
+        <input ngModel #specialist="ngModel" name="specialist" type="text" class="form-control" id="specialist" value="" placeholder="What you are special for..." [ngClass]="{ 'is-invalid': f.submitted && specialist.invalid }" list="spec" required>
+        <datalist id="spec">
+                <option *ngFor ="let spec of Specialist" [ngValue]="specialist">{{spec}} </option>
+        </datalist>
+        <div *ngIf="f.submitted && specialist.invalid" class="invalid-feedback">
+            <div *ngIf="specialist.errors.required">Area of your study is required</div>
+        </div>
+    </div>                      
+                                     
+                                
+                                <div class="form-group"> 
+                                    <!-- conf password -->
+                                        <input ngModel #confpassword="ngModel" name="confpassword" type="password" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && confpassword.invalid }" placeholder="Confirm Password..." required appShowpassword>
+                                        <div *ngIf="f.submitted && confpassword.invalid" class="invalid-feedback">
+                                                <div *ngIf="confpassword.errors.required">Confirm your password</div>
+                                            </div>
+    
+                                    </div>
+                                  
+                                <input type="submit" class="btnRegister"  value="Register" />
+                           </div>
+                        </div>
+                        </form>
+
+                   
+                  
+                
+            </div>
+        </div>
+    
+      </div>
+    </div>

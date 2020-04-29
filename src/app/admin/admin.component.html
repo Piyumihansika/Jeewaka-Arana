@@ -1,0 +1,370 @@
+
+
+
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-color"color-on-scroll="500">
+    <div class="container">
+      <img src="assets/img/herbalicon.png" height="30px" width="30px"  />
+        <div class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['/home']" placement="bottom" >
+               
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+            <ul class="navbar-nav ml-auto">
+  
+  
+              <li class="nav-item">
+                <a class="nav-link"   routerLink="/index" >
+                    <i class="now-ui-icons business_bank"></i>
+                    <p>Home</p>
+                </a>
+            </li>
+  
+  
+                
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/admin" >
+                  <i class="now-ui-icons text_align-left"></i>
+                  <p>Articles</p>
+              </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/docaccept" >
+                <i class="now-ui-icons ui-1_email-85"></i>
+                <p>Doctors Confirmation</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/doclist" >
+                <i class="now-ui-icons users_single-02"></i>
+                <p>Doctors List</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="notification" >
+                <i class="now-ui-icons ui-2_time-alarm"></i>
+                <p>Notification</p>
+            </a>
+        </li>
+              
+        
+  
+            <li class="nav-item">
+              <a class="nav-link" href="/docAppoinment">
+                  <i class="now-ui-icons ui-1_calendar-60"></i>
+                  <p>Appoinments</p>
+              </a>
+          </li>
+                         
+         
+  
+         
+          <li class="nav-item">
+              <a class="nav-link" href="/index" >
+                  <i class="now-ui-icons media-1_button-power"></i>
+                  <p>Log Out</p>
+              </a>
+          </li>
+  
+             
+            </ul>
+        </div>
+    </div>
+  </nav>
+  
+
+
+<div *ngIf="2==1">
+    
+<div class="page-header" filter-color="orange">
+    <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('http://www.lucepulsatabustoarsizio.it/img/slide/2.jpg') ;">
+        
+        </div>
+        <div class="container">
+            <div class="col-md-4 content-center">
+                <div class="card card-login card-plain">
+                    <form class="form" method="" action="">
+                        <div class="header header-primary text-center">
+                            <!-- <div class="logo-container">
+                                <img src="assets/img/now-logo.png" alt=""  width="100px" height="100px" style="align-content: center">
+                            </div> -->
+                        </div>
+                        <div class="content">
+                          <div class="wrapper">
+                              <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">   
+                                  
+                               <div class="row" *ngIf="authError">
+                               <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+                               </div>
+                                <h3 class="heading">Login as Administrator</h3>
+                                <div class="inputdiv"> <input ngModel #email="ngModel" name="email" type="email" class="form-control" placeholder="Email...">
+                                </div>
+      
+                                <div class="inputdiv"><input ngModel #password="ngModel" name="password" type="password" class="form-control" placeholder="Password">     
+                                </div>
+      
+                                
+                                  <label class="checkbox">
+                                  <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+                                </label>
+                                <br>
+                                <button class="btn btn-primary" type="submit" >Login</button>
+                            
+                              </form>
+                            </div>
+                        </div>
+      
+                        
+                     
+                        <div class="pull-right">
+                            <h6>
+                                <a href="#pablo" class="link">Need Help?</a>
+                            </h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+      </div>
+      
+</div>
+<div *ngIf="2>1">
+<div class="wrapper">
+    <div class="page-header page-header-small" filter-color="orange">
+        <nav> 
+                <li>
+                       <button mdbBtn color="success" outline="true" size="sm" class="my-0 waves-light" type="submit">Logout</button>
+                </li>        
+        </nav>
+       
+            <!--Navbar-->
+        <div class="page-header-image rellax-header" data-rellax-speed="-8"
+            style="background-image: url('https://content3.jdmagicbox.com/comp/ahmedabad/j6/079pxx79.xx79.151006185327.d4j6/catalogue/k-paradise-spa-ahmedabad-0do7tq87uy.jpg') ;">
+        </div>
+        <div class="container">
+
+            <p>{{date}}</p>
+
+            <div class="content-center">
+                <div class="photo-container">
+                    <img src="assets/img/default-avatar.png" alt="">
+                </div>
+                <h3 class="title">Admin Panel</h3>
+                <!-- <p class="category">Ayurvedic Doctor</p>
+                <div class="button-container">
+                    <a routerLink="/admin/editprofile" class="btn btn-primary btn-round btn-lg">Edit profile</a> -->
+                    <!-- <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
+                          <i class="fab fa-instagram"></i>
+                        </a>-->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <!-- <div class="container">
+
+            <h3 class="title" aria-placeholder="center">Welcome to admin page</h3> -->
+            <div class="row">
+                <div class="col">
+                    <div id="sidebar" style=" width:300px;height:400px;">
+
+
+                        <ul >
+                            <li style=" padding:20px;border-bottom:2px solid grey; background:#c0392b;
+                    color:white;"> <a routerLink="/admin">Articles</a></li>
+                            <li style=" padding:20px;border-bottom:2px solid grey; background:#c0392b;
+                    color:white;"><a routerLink="/admin/doclist">Doctors Confirmation </a></li>
+                            <li style=" padding:20px;border-bottom:2px solid grey; background:#c0392b;
+                    color:white;"><a routerLink="/admin/docaccept">Doctors </a></li>
+                            <li style=" padding:20px;border-bottom:2px solid grey; background:#c0392b;
+                    color:white;"><a routerLink="notification">Notifications</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <!-- <ngb-carousel>
+
+                                <ng-template ngbSlide>
+                                    <img class="d-block" src="assets/img/meditrad.jpeg" alt="Third slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ayurveda in SriLanka</h5>
+                                    </div>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="d-block" src="assets/img/Traditional_medicine.jpeg" alt="Fourth slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ayurveda in SriLanka</h5>
+                                    </div>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <img class="d-block" src="assets/img/ayurveda_medicines_2.jpg" alt="Fifth slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ayurveda in SriLanka</h5>
+                                    </div>
+                                </ng-template>
+
+                                <ng-template ngbSlide>
+                                    <img class="d-block" src="assets/img/header.jpg" alt="Fifth slide">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Ayurveda in SriLanka</h5>
+                                    </div>
+                                </ng-template>
+
+                            </ngb-carousel> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<div class= "container" >
+        <label for="file">File:</label>
+        <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+
+    </div>-->
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+
+            <div class="card-body">
+                <h5 class="title">Upload an article:</h5>
+                <img src="assets/img/note.png" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+<br><br><br>
+                <a class="category text-primary" href="#">Click Here</a>
+                
+                <!--<div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <br>-->
+                <!--<div class="alert alert-info" role="alert">
+                    *ngIf="downloadURL | async; let downloadSrc"
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                </div>
+                <br>-->
+                <!--<div class="btn-group" role="group">
+                   *ngIf="uploadState | async; let state"
+                    <button type="button" class="btn btn-primary" (click)="task.pause()"
+                        [disabled]="state === 'paused'">Pause</button>
+                    <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                        [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="task.resume()"
+                        [disabled]="state === 'running'">Resume</button>
+                </div>-->
+            </div>
+        </div>
+        <div class="col-md-8">
+
+            <div class="card-body">
+                <h5 class="title">Upload an image:</h5>
+                <img src="assets/img/newman.png" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+
+                <!--<a class="category text-primary" href="#">Click Here</a>-->
+                <!--<label for="file">File:</label>
+                    <input type="file" (change)="upload($event)" accept=".png,.jpg" />-->
+                    <div *ngIf="currentFileUpload" class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped"
+                              role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                              aria-valuemin="0" aria-valuemax="100"
+                              [ngStyle]="{width:progress.percentage+'%'}">
+                              {{progress.percentage}}%</div>
+                          </div>
+                           
+                          <label class="btn btn-default"> <input type="file"
+                            (change)="selectFile($event)">
+                          </label>
+                           
+                          <button class="btn btn-success" [disabled]="!selectedFiles"
+                            (click)="upload()">Upload</button>
+                <!--<div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <br>-->
+                <!--<div class="alert alert-info" role="alert">
+                    *ngIf="downloadURL | async; let downloadSrc"
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                </div>
+                <br>-->
+                <!--<div class="btn-group" role="group">
+                   *ngIf="uploadState | async; let state"
+                    <button type="button" class="btn btn-primary" (click)="task.pause()"
+                        [disabled]="state === 'paused'">Pause</button>
+                    <button type="button" class="btn btn-primary" (click)="task.cancel()"
+                        [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="task.resume()"
+                        [disabled]="state === 'running'">Resume</button>
+                </div>-->
+            </div>
+        
+    </div>
+</div>
+    <div class="section-story-overview">
+        <h2 class="title text-center">Articles</h2>
+        <div class="container">
+      <div class="row">
+          <div class="column">
+          <ul *ngFor="let result of results">
+            <ul class="articles">
+              <li>
+                <article>
+                  <div class="article-media"></div>
+                  <div class="l-pad-content">
+                    <h1>{{result.title}}</h1>
+                    <p>{{result.description}}... <a class="more" href="#">read more</a></p>
+                  </div>
+                </article>
+              </li>
+            </ul>
+            <!-- END articles -->
+          </ul>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+
+  <!--<div class="section-story-overview">
+        <h2 class="title text-center">Uploaded Images</h2>
+        <div class="container">
+      <div class="row">
+          <div class="column">
+              <div class="panel panel-primary">
+                        <div class="panel-heading">List of Images</div>
+                        <div *ngFor="let file of fileUploads">
+                          <div class="panel-body">
+                            <details-upload [fileUpload]='file'></details-upload>
+                          </div>
+                        </div>
+                      </div>
+              
+          </div>
+        </div>
+      </div>
+      
+  </div>
+  </div>-->
+
+  </div>
+  </div>
+  <app-afooter></app-afooter>
+
+ 
+  

@@ -1,0 +1,31 @@
+
+
+   <div>      
+
+<ul >
+     
+<div class="card">
+ <table  style="width: 100%;" >
+        <tr>
+           <th *ngFor="let comment of commentElements" scope="col">{{comment}} </th>
+           
+         </tr>
+        
+         <tr *ngFor="let c of post | async">
+          
+           <td>{{c.content}}</td>
+           <td>{{c.title}}</td>
+           <td><button  class="btn btn-primary btn-round" type="button" (click)="deletePost(d.Userid) ">Delete</button></td>
+       
+        </tr>
+       
+       
+       </table>
+</div>
+
+
+</ul>
+
+   
+</div>   
+

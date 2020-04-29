@@ -1,0 +1,404 @@
+
+<div class="card0">
+   <div class="card-body" style="background-color: white;"> 
+      <img class="logo" src="assets/img/new3logo.png" alt="logo" height=22% width=22% style="margin-left:28rem;margin-top:1rem;"> 
+      <h4 style="margin-left:28rem;font-weight: bold;color: #f96332;" >{{today | date:'fullDate'}}</h4>
+   </div>
+
+</div> 
+
+
+
+<div class="sidenav" style="background-color: #f96332;">
+
+  <img src="{{post$.downloadURL}}" alt="Image" style="width: 11rem;height: 12rem;">
+  <br><br>
+  <a routerLink="/index" style="font-size: 17px; font-weight:bold;color: white;"><i class="now-ui-icons business_bank"></i>   Home</a><br>
+
+  <a [routerLink]="['/viewappoinment',my_id]"  style="font-size: 17px; font-weight:bold;color: white;"><i class="now-ui-icons business_briefcase-24"></i>   Appoinments</a><br>
+  <a [routerLink]="['/complain',my_id]" style="font-size: 17px; font-weight:bold;color: white;"><i class="now-ui-icons text_align-center"></i>   Complains</a><br>
+
+  <a  [routerLink]="['/spage',my_id]" style="font-size: 17px; font-weight:bold;color: white;"><i class="now-ui-icons users_circle-08"></i>  Profile</a><br>
+
+ <a routerLink="/index" style="font-size: 17px; font-weight:bold;color: white;"><i class="now-ui-icons gestures_tap-01"></i>   Sign Out</a><br>
+   <!-- <button class="dropdown-btn">Dropdown 
+     <i class="fa fa-caret-down">ffff</i>
+   </button> -->
+   <!-- <div class="dropdown-container">
+     <a href="#">Link 1</a>
+     <a href="#">Link 2</a>
+     <a href="#">Link 3</a>
+   </div>
+   -->
+
+
+ </div>
+ 
+ <div class="main" >
+  
+   <div class="row">
+      <div class="column">
+        <br>
+        <div class="card1" style="width:20rem;">
+         
+         <h5 style="font-weight: bold;">Select Year</h5>
+         <div class="col1">
+            <div class="form-group">
+                <input ngModel #position name="position" type="text" class="form-control" placeholder="Year" (change)="posFilter($event.target.value)" list="pos-list" >
+                <datalist id="pos-list">
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                    </datalist>
+            </div>
+            </div>
+            <br><br><br>
+      
+            Count   :   {{y}} 
+
+        </div>
+      </div>
+      <div class="column">
+        <br>
+        
+        <div class="card2" style="width:20rem;margin-left:5rem;">
+         <h5 style="font-weight: bold;">Select Month</h5>
+         <div class="col1">
+            <div class="form-group">
+                <input ngModel #month name="month" type="text" class="form-control" placeholder="Month" (keyup)="monthFilter(month.value)" list="pos-mnth" >
+                <datalist id="pos-mnth">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        
+                      
+
+
+                    </datalist>
+            </div>
+            </div><br><br><br>
+     
+            <!-- <i class="now-ui-icons emoticons_satisfied"> {{m}} </i>  -->
+            Count   :  {{m}}
+       
+      </div>
+      </div>
+      <div class="column">
+        <br>
+        <div class="card3" style="width:20rem;margin-left:10rem;">
+         <h5 style="font-weight: bold;">Select Day</h5>
+         <div class="col1">
+            <div class="form-group">
+                <input ngModel #day name="day" type="text" class="form-control" placeholder="Day" (keyup)="dayFilter(day.value)" list="day-list" >
+                <datalist id="day-list">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </datalist>
+            </div>
+            </div>
+            <br><br><br>
+      
+            Count   : {{d}} 
+       
+      </div>
+      </div>
+      <!-- <div class="column">
+        <div class="card">..</div>
+      </div> -->
+    </div>
+
+<!--  -->
+
+<div class="column" >
+  <br>
+  <div class="card4" style="width:63rem;margin-left:0.1rem;">
+  
+
+
+      
+
+    <table  style="width: 100%;">
+      
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        
+        <!-- <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th> -->
+      </tr>
+     
+      <!-- <div *ngFor="let item of Query | async"> -->
+<br>
+      <tr *ngFor="let item of Query | async">
+
+        
+        
+        <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{item.PatientName
+        }}</td>
+        
+        <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{item.Day}}-{{item.Month}}-{{item.Year}}</td>
+        <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{item.Time}}</td>
+        <td style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{item.PhoneNumber}}</td>
+     </tr>
+
+    <!-- </div> -->
+    </table>
+
+
+
+    </div>
+    </div>
+<br><br>
+
+
+
+
+<br><br><br>
+<!--  -->
+<!-- <div class="column"> -->
+  <div class="card" style="width:60rem;margin-left:1rem;">
+
+     <h5 style="font-weight: bold;"> Statistic</h5><hr style="background-color: black;">
+
+        
+         <!-- <app-dlinechart year="{{year}}  " userid="{{my_id}}" ></app-dlinechart>  -->
+
+
+         
+         <!-- <app-dlinechart  userid="{{my_id}}" ></app-dlinechart>  -->
+         <app-barchart userid="{{my_id}}" ></app-barchart>
+         <!-- <app-dlinechart  userid="{{my_id}}" ></app-dlinechart>  -->
+  </div>
+<!-- </div> -->
+
+
+
+ 
+
+
+</div>
+
+
+
+
+
+
+
+    
+
+
+<br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="column">
+      <div class="card" style="width:60rem;">
+
+
+
+      </div>
+    </div> -->
+   
+
+         <!-- <div>
+
+            <h4 style="margin-left: 29rem;font-weight: bolder;;">Your Patients</h4><br><br>
+                      <ul *ngFor="let app of apps | async"> 
+                          <div class="col col-md-13"> 
+                             <h5>Patient Name -{{app.pname}}</h5> 
+                             <h5>Telephone Number -{{app.tp}} </h5> 
+                             <h5>Disease -{{app.disease}}</h5>
+                             <h5>Date - {{app.date}}</h5>
+                             <h5>Time - {{app.time}}</h5>
+                              <br>
+                              <hr><br>
+                              </div>
+             
+                    </ul>
+                    </div> -->
+
+
+
+
+    <!--  -->
+
+    <!-- <div *ngFor="let item of Query | async">
+      <div class="card">
+          <div class="row">
+              <div class="img">
+              <img src="https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg" alt="Avatar"  class="avatar">
+              </div>
+              <div class="column">
+              <div class="container">
+                <h4><b>{{item.Pname}} {{item.time}}</b></h4> 
+                <p>{{item.year}}</p> 
+                <p>{{item.name}}</p>
+                
+               
+              </div>
+              </div>
+              </div>
+              </div>
+              </div> -->
+
+
+
+
+<!--  -->
+
+<!--  -->
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- 
+
+     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--     
+     <h3 style="margin-left: 27rem;">{{today | date:'fullDate'}}</h3>
+     <br><br><br>
+
+     <div class="card">
+
+     </div>
+
+     <div id="content" #content>
+     <div>
+
+<h4 style="margin-left: 29rem;font-weight: bolder;;">Your Patients</h4><br><br>
+          <ul *ngFor="let app of apps | async"> 
+              <div class="col col-md-13"> 
+                 <h5>Patient Name -{{app.pname}}</h5> 
+                 <h5>Telephone Number -{{app.tp}} </h5> 
+                 <h5>Disease -{{app.disease}}</h5>
+                 <h5>Date - {{app.date}}</h5>
+                 <h5>Time - {{app.time}}</h5>
+                  <br>
+                  <hr><br>
+                  </div>
+ 
+        </ul>
+        </div>
+        <div>
+         <h3>Number of total Patients :  {{x}} </h3>
+        
+   
+      </div>
+   
+       
+
+
+        
+     </div>
+
+
+
+
+
+
+   
+
+
+
+
+     <button (click)="downloadPDF()">Export  PDF</button>
+-->
+
+<app-dfooter></app-dfooter>
+<br><br>
+     <!-- <app-charts id={{my_id}}></app-charts>  -->

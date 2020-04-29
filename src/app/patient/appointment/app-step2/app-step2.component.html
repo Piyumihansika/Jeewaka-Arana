@@ -1,0 +1,141 @@
+<app-pnav passid={{my_id}}></app-pnav>
+<div class="wrapper">
+    
+
+    <div class="container">
+    <ol class="progress-steps">
+      <li class="completed"><span class="number">&#10003;</span> Choose Doctor
+      <li class="active"><span class="number">&#10003;</span> Choose Date & Time</li>
+      <li><span class="number">03</span> Verify Booking</li>
+    </ol>
+  </div>
+
+  <div class="container">
+  <div class="time-picker-container">
+    <div class="col">
+      <div class="row" style="margin-left:12em;">
+        <button class="btn btn-primary btn-icon btn-round" style="margin-left:12em; margin-right:20px;" (click)="decrease()"  type="button">
+          <i class="now-ui-icons arrows-1_minimal-left"></i>
+      </button>
+
+      
+          <h4 class="text-center" style="margin-top: 15px;">{{month}}-{{day}}-{{year}}</h4>
+          <button class="btn btn-primary btn-icon btn-round" style="margin-left: 20px; " (click)="increase()" type="button">
+            <i class="now-ui-icons arrows-1_minimal-right"></i>
+        </button>
+        <!-- <app-slots></app-slots> -->
+      </div>
+      <!-- payload.doc.data().Firstname -->
+    
+    <p class="message">{{message}}</p>
+
+    <div class="row1">
+      
+      <!-- <div *ngFor="let slot of timeslot" >
+        
+      
+<ul>
+  <li class="myslot"><button class="btn btn-primary btn-simple btn-round" (click)="clickTime(slot,month,year,day)">{{slot}}</button></li>
+</ul>
+
+</div> -->
+
+<div *ngFor="let mapEntry of myslots | keyvalue">
+ 
+  <ul>
+    <div *ngIf="mapEntry.value.avail==true">
+    <li class="myslot"><button class="btn btn-primary btn-simple btn-round" (click)="clickTime(mapEntry.value.time,month,year,day)"> {{mapEntry.value.time}}</button></li>
+  </div>
+
+  <div *ngIf="mapEntry.value.avail==false">
+    <li class="myslot"><button class="btn btn-primary btn-simple btn-round"   disabled> {{mapEntry.value.time}}</button></li>
+  </div>
+  </ul>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+      <!-- <ul>
+        <li *ngFor="let slot of slotdoc | async">
+        {{slot.payload.doc.id}} {{slot.payload.doc.data().Time[0]}}
+        </li>
+      </ul> -->
+
+      <!-- <div class="time-picker"  >
+        <div class="row time-picker-header">
+          
+          <div class="row">
+         <div class="col" *ngFor="let slot of slotdoc | async">
+                <span class="date-slot-day">Monday</span>
+                <span class="date-slot-date">{{slot.payload.doc.id}}</span>
+                <ul class="time-slot">
+                  <li class="time-slot-item"  (click)="test()">{{slot.payload.doc.data().Time[0]}}</li>
+                  <li class="time-slot-item" (click)="test()">{{slot.payload.doc.data().Time[1]}}</li>
+                  <li class="time-slot-item">{{slot.payload.doc.data().Time[2]}}</li>
+                  <li class="time-slot-item">{{slot.payload.doc.data().Time[3]}}</li>
+                </ul>
+                
+              </div> 
+          </div>
+         
+
+        </div>
+      </div>
+     -->
+    </div>
+    
+    <div class="row" class="text-center" >
+      <div class="col-md-10" >
+          <button  style="margin-left: 80em;" class="btn btn-primary btn-round" type="button" (click)="next()">Next</button>
+      </div> 
+  </div>
+
+  <!-- <button (click)="test()">click test</button> -->
+  
+
+  
+    <!-- <footer class="footer footer-default">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/about-us">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                            MIT License
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                &copy;
+                {{data | date: 'yyyy'}}, Designed by
+                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </div>
+        </div>
+    </footer> -->
+</div>
+<app-pfooter></app-pfooter>
+</div>

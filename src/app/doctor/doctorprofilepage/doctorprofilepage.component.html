@@ -1,0 +1,165 @@
+<app-pnav></app-pnav>
+
+<div class="container">
+
+  <div class="content-center brand">
+    <img class="logo" src="assets/img/new3logo.png" alt="logo" height=22% width=22% style="margin-left:27rem;margin-top:5rem;"> 
+    
+</div>
+</div> 
+
+
+<div class="section section-tabs" style="background-color: white;">
+  <div class="container col-lg-12">
+    <div class="row">
+      <div class="col-md-20 col-xl-10">
+
+
+
+        <div class="row ">
+
+          <div class="col col-md-6">
+            <div data-aos="zoom-in-right" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
+              data-aos-easing="ease-in-out" >                                    
+          
+             
+           <img class="img1" src="{{post$.downloadURL}}" width="320" height="280"  style="margin-left:9rem;"/>
+          
+          </div>
+          </div>
+        
+          <div class="col col-md-1">
+            <div data-aos="zoom-in-left" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
+            data-aos-easing="ease-in-out" >
+
+            <div class="card1" style="width:35rem;height:17rem;">
+              <b><span  style="margin-left:7rem;font-size: 2rem;"> Today Special Note   </span></b>
+                  <br><br><br>
+                  <div *ngIf="post$.note">
+                  <p style="font-weight: bold;font-size: 1.5rem;margin-left: 2rem;">{{post$.note}}</p>
+              
+                </div >
+
+
+                <div  *ngIf ="!post$.note">
+                  <p style="font-weight: bold;font-size: 1.5rem;margin-left: 2rem;"> No special notes for today!</p>
+                </div>
+                 </div>
+                  </div>
+        </div>
+                
+          </div>
+    
+        
+
+        
+<div  style="margin-left:15rem;margin-top:6rem;">
+
+  <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                   <label class="col-lg-6 control-label" ><span style="font-size: 1.5rem;font-weight: bold;"> Name </span></label>
+                 
+                   <span style="font-size: 1.5rem;"> {{post$.Firstname}}   {{post$.Lastname}}</span><br><br>
+                  </div>
+
+                 
+
+                 <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                 <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Specialist  </span> </label>
+                 <span style="font-size: 1.5rem;"> {{post$.Specialist}}</span><br><br>
+                </div>
+
+
+
+            
+
+               <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                 <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Status  </span> </label>
+                 <span style="font-size: 1.5rem;"> {{post$.Position}}</span><br><br>
+                </div>
+
+                 <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                 <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Address   </span> </label>
+                  
+                 <span style="font-size: 1.5rem;margin-left: 25rem;">{{ post$.No}},</span><br>
+                 <span style="font-size: 1.5rem;margin-left: 25rem;">{{post$.Lane1}},</span><br>
+                 <span style="font-size: 1.5rem;margin-left: 25rem;">{{post$.Lane2}},</span><br>
+                 <span style="font-size: 1.5rem;margin-left: 25rem;">{{post$.City}}</span><br>
+                 
+                </div>
+                <br>
+                   <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                 <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Telephone Number  </span> </label>
+                 <span style="font-size: 1.5rem;"> {{post$.PhoneNumber}}</span><br><br>
+                </div>
+               
+                 <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                 <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Email Address </span> </label>
+                  
+                 <span style="font-size: 1.5rem;"> {{post$.Email}}</span><br><br>
+                </div>
+                 
+                <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                  <label class="col-lg-6 control-label"><span style="font-size: 1.5rem;font-weight: bold; ">Available Hours</span> </label>
+                  <div *ngFor="let slot of ap |async">
+                  <span style="font-size: 1.5rem;margin-left:25rem;"> {{slot.ap_id}}:{{slot.Time[0]}}-{{slot.Time[slot.n-1]}}</span><br>
+                  </div>
+                 </div>
+                
+               
+
+
+
+
+</div>
+
+
+    
+
+ 
+<!--                 
+</div>
+
+
+
+
+
+</div> -->
+
+
+
+
+
+<!-- 
+
+<h4>gggggggg</h4> -->
+
+<div>
+<br><br><br><br>
+  <app-comment id="{{my_id}}"></app-comment> 
+</div>
+
+
+
+<!-- 
+<h4>gggggggg</h4> -->
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <div class="col-md-10">
+
+  <div class="card" style="background-color: black;">jjjjj</div>
+  <h6>fggysysususiisisiss</h6>
+
+</div> -->
+
+
+
+<app-dfooter></app-dfooter>

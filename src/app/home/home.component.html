@@ -1,0 +1,159 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+  <div class="container">
+    <img src="assets/img/herbalicon.png" height="30px" width="30px"  />
+      <div class="navbar-translate">
+          <a class="navbar-brand" [routerLink]="['/home']" placement="bottom" >
+             
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+          <ul class="navbar-nav ml-auto">
+
+
+
+
+
+              <li class="nav-item">
+                  <a class="nav-link"   routerLink="/home" >
+                      <i class="now-ui-icons business_bank"></i>
+                      <p>Home</p>
+                  </a>
+              </li>
+
+
+
+              
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/home" >
+                    <i class="now-ui-icons business_globe"></i>
+                    <p>Change Language</p>
+                </a>
+            </li>
+
+              
+
+
+
+              <li class="nav-item">
+                <a class="nav-link btn btn-neutral" routerLink="/login">
+                    <i class="now-ui-icons arrows-1_share-66"></i>
+                    <p>Log In</p>
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-neutral" routerLink="/signup">
+                  <i class="now-ui-icons arrows-1_share-66"></i>
+                  <p>Sign In</p>
+              </a>
+          </li>
+          
+           
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image rellax-header" data-rellax-speed="-7" style="background-image: url('https://wallpaperaccess.com/full/20664.jpg');">
+
+    </div>
+    <div class="container">
+      <div class="content-center brand">
+          <img class="logo" src="assets/img/newlogo.png" alt="logo"  >
+          <br>
+          <br>
+          <h1 class="h1-seo">Welcome to Jeewaka Arana</h1>
+          <h3>A greatest Ayurvedic platform</h3>
+      </div>
+
+   
+     
+  </div>
+
+</div>
+
+   
+<div class="section" id="carousel">
+    
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <div class="col-8">
+              
+              <ngb-carousel>
+                  <ng-template ngbSlide>
+                      <img class="d-block" src="assets/img/img11.PNG" alt="First slide">
+                      <div class="carousel-caption d-none d-md-block">
+                          <h5>Ayurveda in SriLanka</h5>
+                      </div>
+                    </ng-template>
+                  <ng-template ngbSlide>
+                    <img class="d-block" src="assets/img/medicinanatural.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Ayurveda in SriLanka</h5>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <img class="d-block" src="assets/img/meditrad.jpeg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Ayurveda in SriLanka</h5>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                      <img class="d-block" src="assets/img/Traditional_medicine.jpeg" alt="Fourth slide">
+                      <div class="carousel-caption d-none d-md-block">
+                          <h5>Ayurveda in SriLanka</h5>
+                      </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <img class="d-block" src="assets/img/ayurveda_medicines_2.jpg" alt="Fifth slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Ayurveda in SriLanka</h5>
+                        </div>
+                      </ng-template>
+              </ngb-carousel>
+            </div>
+        </div>
+    
+    </div>
+</div>
+  <footer class="footer" data-background-color="black">
+    <div class="container">
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://www.creative-tim.com">
+                        Creative Tim
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/about-us">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="http://blog.creative-tim.com">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                        MIT License
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright">
+            &copy;
+          {{data | date: 'yyyy'}}, Designed by Jeewaka Arana Team.
+           
+        </div>
+    </div>
+</footer>
+
+  </div>
